@@ -1,0 +1,26 @@
+server:
+  session-timeout: 1800
+  port: 8089
+  tomcat:
+    basedir:
+      /data/f19bapp/temp  
+security:
+  basic:
+    enabled: false
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  profiles: 
+    active: pro
+  http:
+    multipart:
+      max-file-size: 1024Mb
+      max-request-size: 1024Mb
+mybatis: 
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: mapper/*Mapper.xml
+  typeAliasesPackage: com.product.domain
