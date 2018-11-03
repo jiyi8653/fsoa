@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="css/layui.css">
+    <head th:include="include :: header"></head>
     <link rel="stylesheet" href="css/login.css">
     <title>管理后台</title>
 </head>
-<body class="login-wrap" ng-controller="GlobalCtrl">
+<body class="login-wrap signin" ng-controller="GlobalCtrl">
     <div class="login-container">
         <form class="login-form">
             <div class="input-group">
@@ -28,9 +28,6 @@
         </form>
     </div>
 </body>
-<script src="js/jquery.min.js"></script>
-<script src="js/angular.min.js"></script>
-<script src="js/app.js"></script>
-<script src="js/layui.js"></script>
+<div th:include="include::footer"></div>
 <script src="js/web/web-login.js"></script>
 </html>
