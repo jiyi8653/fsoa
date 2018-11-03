@@ -10,17 +10,16 @@ import com.product.utils.ShiroUtils;
 @RequestMapping("/")
 public class IndexController extends BaseController {
 
-	@RequestMapping({ "/", "/index.html" })
+	@RequestMapping({ "/index.html" })
 	public String index() {
-		return "login";
+		return "index";
 	}
-
 	/**
 	 * 登录页面
 	 * 
 	 * @return
 	 */
-	@RequestMapping("/login.html")
+	@RequestMapping({ "/", "/login.html" })
 	public String login() {
 		return "login";
 	}
