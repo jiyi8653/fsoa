@@ -1,6 +1,6 @@
 server:
   session-timeout: 1800
-  port: 8089
+  port: 8080
   tomcat:
     basedir:
       /data/f19bapp/temp  
@@ -9,7 +9,8 @@ security:
     enabled: false
 spring:
   thymeleaf:
-    prefix: classpath:/templates/
+    mode: LEGACYHTML5
+    cache: false
   jackson:
     time-zone: GMT+8
     date-format: yyyy-MM-dd HH:mm:ss

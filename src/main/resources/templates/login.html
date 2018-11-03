@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="icon" href="/favicon.ico">
-    <head th:include="include :: header"></head>
+    <link rel="stylesheet" href="css/layui.css">
+    <link rel="stylesheet" href="css/login.css">
     <title>管理后台</title>
 </head>
 <body class="login-wrap" ng-controller="GlobalCtrl">
@@ -23,13 +24,13 @@
                     <span class="label-title">密码</span>
                 </label>
             </div>
-            <button type="button" class="login-button">登录<i class="ai ai-enter"></i></button>
+            <button type="button" ng-click="login();" class="login-button">登录<i class="ai ai-enter"></i></button>
         </form>
     </div>
 </body>
-<script src="assets/layui.js"></script>
-<script src="index.js" data-main="login"></script>
-<script src="js/login.js" data-main="login"></script>
-<div th:include="include::footer"></div>
-
+<script src="js/jquery.min.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/layui.js"></script>
+<script src="js/web/web-login.js"></script>
 </html>
