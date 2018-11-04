@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="app">
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<link rel="stylesheet" href="../css/view.css"/>
+<style>
+@media screen and (max-width: 480px){
+	.mobile-table {
+	   overflow:scroll !important
+	}
+}
+</style>
+<body class="layui-view-body" ng-controller="projectCtrl">
+    <div class="layui-content">
+        <div class="layui-row">
+            <div class="layui-card">
+                <div class="layui-card-body">
+                    <div class="form-box">
+                        <div class="layui-form layui-form-item">
+                            <div class="layui-inline">
+                                <div class="layui-form-mid">项目名称:</div>
+                                <div class="layui-input-inline" >
+                                  <input type="text" autocomplete="off" ng-model="pro.projectName" class="layui-input">
+                                </div>
+                                <button class="layui-btn layui-btn-blue">查询</button>
+                            </div>
+                            <div class="layui-inline layui-col-md-offset6">
+                               <button class="layui-btn layui-btn-blue" ng-click="addProject();"><i class="layui-icon">&#xe654;</i>新增</button>
+                            </div>
+                        </div>
+                        <div class="layui-table-box mobile-table">
+	                        <table class="layui-table layui-table-box">
+							  <thead>
+							    <tr>
+							      <th class="layui-table-cell">ID</th>
+							      <th class="layui-table-cell">项目名称</th>
+							      <th class="layui-table-cell">公司名称</th>
+							      <th class="layui-table-cell">端类型</th>
+							      <th class="layui-table-cell">进度</th>
+							      <th class="layui-table-cell">开始时间</th>
+							      <th class="layui-table-cell">测试时间</th>
+							      <th class="layui-table-cell">交付时间</th>
+							      <th class="layui-table-cell">操作</th>
+							    </tr>
+							  </thead>
+							  <tbody>
+							    <tr ng-repeat="item in projects">
+							      <th class="layui-table-cell">{{item.id}}</th>
+							      <th class="layui-table-cell">{{item.projectName}}</th>
+							      <th class="layui-table-cell">{{item.userDO.name}}</th>
+							      <th class="layui-table-cell">{{item.developItemDO.itemName}}</th>
+							      <th class="layui-table-cell">{{item.progress}}</th>
+							      <th class="layui-table-cell">{{item.startTime | date:'yyyy-MM-dd HH:mm:ss'}}</th>
+							      <th class="layui-table-cell">{{item.testTime | date:'yyyy-MM-dd HH:mm:ss'}}</th>
+							      <th class="layui-table-cell">{{item.finishTime | date:'yyyy-MM-dd HH:mm:ss'}}</th>
+							      <th>
+	                                 <button class="layui-btn layui-btn-blue layui-btn-sm">提交bug/需求</button>
+	                                 <button class="layui-btn layui-btn-blue layui-btn-sm">查看bug/需求</button>
+	                                 <button class="layui-btn layui-btn-blue layui-btn-sm">上传资料</button>
+	                                 <button class="layui-btn layui-btn-blue layui-btn-sm">下载文档</button>
+	                              </th>
+							    </tr>
+							  </tbody>
+							</table>
+						</div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   <div th:include="include::footer"></div>
+<script src="../js/web/web-project.js"></script>
+</body>
+</html>

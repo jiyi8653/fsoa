@@ -184,17 +184,17 @@ html, body , .app-container{
 
 .layui-layout-admin .layui-side.custom-admin,
 .layui-layout-admin .layui-side.custom-admin .layui-nav-tree{
-    width: 260px;
+    width: 200px;
 }
 
 .layui-layout-admin .layui-side.custom-admin .layui-side-scroll{
-    width: 280px;
+    width: 200px;
 }
 
 .layui-body,
 .layui-layout-admin .layui-footer,
 .layui-layout-admin .custom-header .layui-nav.layui-layout-left{
-    left: 260px;
+    left: 200px;
 }
 
 .layui-layout-admin .layui-side.custom-admin{

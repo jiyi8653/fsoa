@@ -1,14 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh-CN" ng-app="app">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="icon" href="/favicon.ico">
-    <head th:include="include :: header"></head>
-    <link rel="stylesheet" href="css/login.css">
-    <title>管理后台</title>
-</head>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<link rel="stylesheet" href="css/login.css">
+
 <body class="login-wrap signin" ng-controller="GlobalCtrl">
     <div class="login-container">
         <form class="login-form">
@@ -28,6 +23,7 @@
         </form>
     </div>
 </body>
+
 <div th:include="include::footer"></div>
 <script src="js/web/web-login.js"></script>
 </html>

@@ -34,10 +34,21 @@ public class IndexController extends BaseController {
 	public String register() {
 		return "web/register";
 	}
-	
+	/**
+	 * 登出
+	 * @return
+	 */
 	@RequestMapping("/logout")
 	public String logout() {
 		ShiroUtils.logout();
 		return "redirect:/login";
+	}
+	/**
+	 * 项目管理
+	 * @return
+	 */
+	@RequestMapping("/project")
+	public String project() {
+		return "redirect:/backend/project";
 	}
 }

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="app">
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<link rel="stylesheet" href="../../css/view.css" />
+<style>
+@media screen and (max-width: 480px) {
+	.mobile-table {
+		overflow: scroll !important
+	}
+}
+.layui-form-select .layui-input {
+    padding-right: 6px;
+    cursor: pointer;
+}
+</style>
+<body class="layui-view-body" ng-controller="addProjectCtrl">
+	<div class="layui-content">
+		<div class="layui-row">
+			<div class="layui-card">
+				<div class="layui-card-header">项目信息</div>
+				<form class="layui-form layui-card-body">
+					<div class="layui-form-item">
+					    <div class="layui-inline">
+							<label class="layui-form-label">项目名称</label>
+							<div class="layui-input-block">
+								<input type="text" name="title" required lay-verify="required"
+									placeholder="请输入项目名称" autocomplete="off" class="layui-input">
+							</div>
+						</div>
+						<div class="layui-inline">
+							<label class="layui-form-label">公司名称</label>
+							<div class="layui-input-block">
+								<select name="company" lay-verify="required" lay-search="">
+									<option value="">请选择公司</option>
+									<option value="0">北京</option>
+									<option value="1">上海</option>
+									<option value="2">广州</option>
+									<option value="3">深圳</option>
+									<option value="4">杭州</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item layui-form-text">
+					    <label class="layui-form-label">项目端&人员</label>
+					  </div>
+					<div class="layui-form-item" ng-repeat="item in proInfo">
+					    <div class="layui-inline">
+							<label class="layui-form-label">端类型</label>
+							<div class="layui-input-block">
+								<select lay-verify="required" lay-search="">
+									<option value="">请选择端</option>
+									<option value="0">北京</option>
+									<option value="1">上海</option>
+									<option value="2">广州</option>
+									<option value="3">深圳</option>
+									<option value="4">杭州</option>
+								</select>
+							</div>
+						</div>
+						<div class="layui-inline">
+							<label class="layui-form-label">开发人员</label>
+							<div class="layui-input-block">
+								<input type="checkbox" title="写作"> 
+								<input type="checkbox" title="阅读"> 
+								<input type="checkbox" title="发呆">
+							</div>
+						</div>
+						<span ng-click="addInfo();" class="layui-btn layui-btn-blue"><i class="layui-icon">-</i></span>
+					</div>
+					<div class="layui-form-item">
+					    <div class="layui-inline">
+							<label class="layui-form-label"></label>
+							<div class="layui-input-inline">
+								<span ng-click="addInfo();" class="layui-btn layui-btn-blue"><i class="layui-icon">&#xe654;</i></span>
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+					    <div class="layui-inline">
+							<label class="layui-form-label">开始时间</label>
+							<div class="layui-input-inline">
+								<input type="text" class="layui-input" id="starttime" required lay-verify="date" placeholder="yyyy-MM-dd" autocomplete="off">
+							</div>
+						</div>
+						<div class="layui-inline">
+							<label class="layui-form-label">测试时间</label>
+							<div class="layui-input-inline">
+								<input type="text" class="layui-input" id="testtime" required lay-verify="date" placeholder="yyyy-MM-dd" autocomplete="off">
+							</div>
+						</div>
+						<div class="layui-inline">
+							<label class="layui-form-label">交付时间</label>
+							<div class="layui-input-inline">
+								<input type="text" class="layui-input" id="finishtime" required lay-verify="date" placeholder="yyyy-MM-dd" autocomplete="off">
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-input-block">
+							<button class="layui-btn layui-btn-blue">立即提交</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script src="../../js/web/project/addProject.js"></script>
+</body>
+</html>
