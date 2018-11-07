@@ -24,7 +24,7 @@
 					    <div class="layui-inline">
 							<label class="layui-form-label">项目名称</label>
 							<div class="layui-input-block">
-								<input type="text" name="title" required lay-verify="required"
+								<input type="text" name="title" required lay-verify="required" ng-model="proInfo.project.projectName"
 									placeholder="请输入项目名称" autocomplete="off" class="layui-input">
 							</div>
 						</div>
@@ -45,29 +45,22 @@
 					<div class="layui-form-item layui-form-text">
 					    <label class="layui-form-label">项目端&人员</label>
 					  </div>
-					<div class="layui-form-item" ng-repeat="item in proInfo">
+					<div class="layui-form-item layui-form" ng-repeat="item in proInfo.proUserItem track by $index">
 					    <div class="layui-inline">
 							<label class="layui-form-label">端类型</label>
 							<div class="layui-input-block">
-								<select lay-verify="required" lay-search="">
+								<select ng-model="item.did" ng-options="it.id as it.itemName for it in items">
 									<option value="">请选择端</option>
-									<option value="0">北京</option>
-									<option value="1">上海</option>
-									<option value="2">广州</option>
-									<option value="3">深圳</option>
-									<option value="4">杭州</option>
 								</select>
 							</div>
 						</div>
 						<div class="layui-inline">
 							<label class="layui-form-label">开发人员</label>
 							<div class="layui-input-block">
-								<input type="checkbox" title="写作"> 
-								<input type="checkbox" title="阅读"> 
-								<input type="checkbox" title="发呆">
+								<input type="checkbox" ng-repeat="de in develops" ng-model="item.uid" data="{{de.id}}" title="{{de.name}}"> 
 							</div>
 						</div>
-						<span ng-click="addInfo();" class="layui-btn layui-btn-blue"><i class="layui-icon">-</i></span>
+						<span ng-click="removeInfo($index);" class="layui-btn layui-btn-blue"><i class="layui-icon">-</i></span>
 					</div>
 					<div class="layui-form-item">
 					    <div class="layui-inline">
@@ -99,7 +92,7 @@
 					</div>
 					<div class="layui-form-item">
 						<div class="layui-input-block">
-							<button class="layui-btn layui-btn-blue">立即提交</button>
+							<button class="layui-btn layui-btn-blue" ng-click="submitProject();">立即提交</button>
 						</div>
 					</div>
 				</form>

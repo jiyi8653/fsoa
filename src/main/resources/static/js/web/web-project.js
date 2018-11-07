@@ -19,11 +19,17 @@ app.controller('projectCtrl', function($scope, $http) {
     $scope.addProject = function(){
     	layer.open({
     		type : 2,
-    		title : '增加',
+    		title : '添加项目',
     		maxmin : true,
     		shadeClose : false, // 点击遮罩关闭层
     		area : [ '80%', '90%' ],
-    		content : javaURL + '/backend/project/add' // iframe的url
+    		content : javaURL + '/backend/project/add', // iframe的url
+    		success:function(layero, index){
+                //获取新窗口对象
+                var iframeWindow = layero.find('iframe')[0].contentWindow;
+                //重新渲染
+                iframeWindow.layui.form.render();
+            }
     	});
     }
     
